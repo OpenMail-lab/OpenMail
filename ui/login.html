@@ -1,0 +1,30 @@
+<h2>🔑 Login to OpenMail</h2>
+<form onsubmit="loginUser(event)">
+  <input type="text" id="username" placeholder="Username" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <button type="submit">Login</button>
+</form>
+<p id="status"></p>
+
+<script>
+  async function loginUser(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    
+    let response = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+
+    let data = await response.json();
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      document.getElementById("status").innerText = "✅ Login successful!";
+      window.location.href = "devops-dashboard.html";
+    } else {
+      document.getElementById("status").innerText = "❌ Invalid credentials!";
+    }
+  }
+</script>

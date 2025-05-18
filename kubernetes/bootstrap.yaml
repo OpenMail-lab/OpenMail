@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: setup-openmail-env
+spec:
+  template:
+    spec:
+      containers:
+        - name: setup-env
+          image: openmail-devops:latest
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              podman machine start
+              minikube start
+              helm repo add openmail https://openmail-lab.github.io/OpenMail/charts/
+              kubectl apply -f openmail-service.yaml
+      restartPolicy: Never

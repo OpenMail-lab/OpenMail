@@ -1,0 +1,12 @@
+<h2>📡 Live Deployment Logs</h2>
+<pre id="logs"></pre>
+
+<script>
+  async function fetchLogs() {
+    let response = await fetch("/api/logs");
+    let logs = await response.json();
+    document.getElementById("logs").innerText = logs.join("\n");
+  }
+
+  setInterval(fetchLogs, 5000);
+</script>

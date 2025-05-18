@@ -1,0 +1,12 @@
+<h2>📜 Installation Logs</h2>
+<pre id="logContent"></pre>
+
+<script>
+  async function fetchLogs() {
+    let response = await fetch("/api/install-log");
+    let data = await response.text();
+    document.getElementById("logContent").innerText = data;
+  }
+
+  fetchLogs();
+</script>

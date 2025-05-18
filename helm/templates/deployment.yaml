@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openmail
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: openmail
+  template:
+    metadata:
+      labels:
+        app: openmail
+    spec:
+      containers:
+      - name: openmail
+        image: openmail:latest
+        ports:
+        - containerPort: 5001

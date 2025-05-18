@@ -1,0 +1,24 @@
+<h2>💬 Submit Feedback</h2>
+<form onsubmit="sendFeedback(event)">
+    <input type="text" id="username" placeholder="Your Name" required>
+    <textarea id="message" placeholder="Your Feedback..." required></textarea>
+    <button type="submit">Submit</button>
+</form>
+<p id="status"></p>
+
+<script>
+  async function sendFeedback(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const message = document.getElementById("message").value;
+
+    let response = await fetch("/api/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ user: username, message })
+    });
+
+    let data = await response.json();
+    document.getElementById("status").innerText = data.status;
+  }
+</script>

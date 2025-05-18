@@ -1,0 +1,16 @@
+button {
+  background-color: #1D4ED8;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover { background-color: #2563EB; }
+
+#status {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  white-space: pre;
+}

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: openmail-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: "letsencrypt"
+spec:
+  rules:
+  - host: openmail.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: openmail-service
+            port:
+              number: 5001
+  tls:
+  - hosts:
+    - openmail.example.com
+    secretName: openmail-tls

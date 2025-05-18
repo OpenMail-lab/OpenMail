@@ -1,0 +1,12 @@
+<h2>📜 Latest Changes in OpenMail</h2>
+<pre id="changelog"></pre>
+
+<script>
+  async function fetchChangelog() {
+    let response = await fetch("/api/changelog");
+    let data = await response.json();
+    document.getElementById("changelog").innerText = data.changelog;
+  }
+
+  fetchChangelog();
+</script>

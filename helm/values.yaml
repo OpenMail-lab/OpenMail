@@ -1,0 +1,11 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: openmail.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - openmail.example.com
+      secretName: openmail-tls

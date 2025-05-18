@@ -1,0 +1,74 @@
+<h2>🔧 DevOps Management</h2>
+
+<!-- Interactive buttons for every tool -->
+<button onclick="openTool('http://localhost:31001')">🌐 Kiali</button>
+<button onclick="openTool('http://localhost:31002')">⚙️ Terraform</button>
+<button onclick="openTool('http://localhost:31003')">🔄 ArgoCD</button>
+<button onclick="openTool('http://localhost:31004')">📦 Helm</button>
+<button onclick="openTool('http://localhost:31005')">🔁 Ansible</button>
+<button onclick="openTool('http://localhost:31006')">🐳 Docker</button>
+<button onclick="openTurtle()">🐢 View DevOps Status (Turtle Graphics)</button>
+<button onclick="window.open('devops-logs.html', '_blank')">📡 View Deployment Logs</button>
+
+<script>
+  function openTool(url) {
+    window.open(url, '_blank');
+  }
+  function openTurtle() {
+    window.open("http://localhost:5000/api/status", "_blank");
+  }
+</script>
+<h2>🚨 System Alerts</h2>
+<p id="alerts"></p>
+<button onclick="recoverServices()">🛠 Fix Issues</button>
+<button onclick="window.open('devops-logs.html', '_blank')">📡 View Deployment Logs</button>
+
+<script>
+  async function fetchAlerts() {
+    let response = await fetch("/api/alerts");
+    let data = await response.json();
+    document.getElementById("alerts").innerText = data.alert;
+  }
+
+  async function recoverServices() {
+    let response = await fetch("/api/recover");
+    let data = await response.json();
+    alert(data.status);
+  }
+
+  setInterval(fetchAlerts, 5000);
+</script>
+
+<button onclick="viewRecovery()">🎨 Visual Recovery</button>
+<button onclick="window.open('devops-logs.html', '_blank')">📡 View Deployment Logs</button>
+
+<script>
+  function viewRecovery() {
+    window.open("http://localhost:5005/api/recovery-visual", "_blank");
+  }
+</script>
+<button onclick="playRecoverySound()">🔊 Play Recovery Sound</button>
+
+<script>
+  async function playRecoverySound() {
+    await fetch("/api/play-sound");
+  }
+</script>
+<h2>🔊 Sound Alerts</h2>
+
+<button onclick="playSound('success')">✅ Play Success Sound</button>
+<button onclick="playSound('error')">❌ Play Error Sound</button>
+<button onclick="playSound('warning')">⚠️ Play Warning Sound</button>
+
+<script>
+  async function playSound(type) {
+    await fetch("/api/play-sound", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type })
+    });
+  }
+</script>
+<audio id="backgroundMusic" autoplay loop>
+    <source src="sounds/background.mp3" type="audio/mpeg">
+</audio>

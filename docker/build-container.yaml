@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: docker-build-openmail
+spec:
+  template:
+    spec:
+      containers:
+      - name: build-openmail-container
+        image: docker
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            docker build -t openmail .
+            docker run -p 5001:5001 --name openmail_container openmail
+      restartPolicy: Never
