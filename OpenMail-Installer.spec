@@ -5,7 +5,7 @@ a = Analysis(
     ['universal-installer.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('backend', 'backend'), ('ui', 'ui'), ('sounds', 'sounds')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

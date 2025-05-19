@@ -1,5 +1,6 @@
 import os
 import subprocess
+from setuptools import setup, find_packages
 
 print("🔹 Building and signing OpenMail installer...")
 subprocess.run(["python3", "build-installer.py"])  # 🔥 Run automatic code signing!
@@ -55,3 +56,20 @@ def retry_on_failure(func, retries=3):
 
 if __name__ == "__main__":
     run_installation()
+
+setup(
+    name="openmail",
+    version="1.0.0",
+    packages=find_packages(),
+    install_requires=[
+        'flask',
+        'requests',
+        'pygame',
+        'cryptography',
+        'pytest',
+        'flake8'
+    ],
+    author="OpenMail Team",
+    description="A modern email client with DevOps tools integration",
+    python_requires='>=3.8',
+)
