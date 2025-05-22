@@ -1,8 +1,70 @@
-<h2>DevOps Management</h2>
-
-<button onclick="window.open('http://localhost:31001', '_blank')">🌐 Kiali</button>
-<button onclick="window.open('http://localhost:31002', '_blank')">⚙️ Terraform</button>
-<button onclick="window.open('http://localhost:31003', '_blank')">🔄 ArgoCD</button>
-<button onclick="window.open('http://localhost:31004', '_blank')">📦 Helm</button>
-<button onclick="window.open('http://localhost:31005', '_blank')">🔁 Ansible</button>
-<button onclick="window.open('http://localhost:31006', '_blank')">🐳 Docker</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Management Console</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/futuristic.css">
+    <link rel="stylesheet" href="styles/cyber-theme.css">
+</head>
+<body class="cyber-container">
+    <div class="ide-layout">
+        <div class="sidebar">
+            <div class="logo-container" id="openMailLogo"></div>
+            <div class="tools-menu">
+                <h2>DevOps Management</h2>
+                <button onclick="window.open('http://localhost:31001', '_blank')">🌐 Kiali</button>
+                <button onclick="window.open('http://localhost:31002', '_blank')">⚙️ Terraform</button>
+                <button onclick="window.open('http://localhost:31003', '_blank')">🔄 ArgoCD</button>
+                <button onclick="window.open('http://localhost:31004', '_blank')">📦 Helm</button>
+                <button onclick="window.open('http://localhost:31005', '_blank')">🔁 Ansible</button>
+                <button onclick="window.open('http://localhost:31006', '_blank')">🐳 Docker</button>
+                <button onclick="window.open('http://localhost:31007', '_blank')">☸️ Kubernetes</button>
+                <button onclick="window.open('http://localhost:31008', '_blank')">🔧 Jenkins</button>
+                <button onclick="window.open('http://localhost:31009', '_blank')">🔍 Trivy</button>
+                <button onclick="window.open('http://localhost:31010', '_blank')">📊 Prometheus</button>
+                <button onclick="openTerminal('istio')">🔄 Istio</button>
+                <button onclick="window.open('http://localhost:31012', '_blank')">📈 Grafana</button>
+                <button onclick="openTerminal('minikube')">🚀 Minikube</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="editor-area" id="mainContent">
+                Welcome to DevOps Management Console
+            </div>
+            <div class="terminal-panel">
+                <div class="terminal-tabs">
+                    <button class="tab active">Terminal</button>
+                    <button class="tab">Output</button>
+                    <button class="tab">Problems</button>
+                </div>
+                <div class="terminal" id="terminal">
+                    > Ready
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const LOCAL_PACKAGES = {
+            kiali: '/packages/kiali',
+            terraform: '/packages/terraform',
+            argocd: '/packages/argocd',
+            helm: '/packages/helm',
+            ansible: '/packages/ansible',
+            docker: '/packages/docker',
+            kubernetes: '/packages/kubernetes',
+            jenkins: '/packages/jenkins',
+            trivy: '/packages/trivy',
+            prometheus: '/packages/prometheus',
+            istio: '/packages/istio',
+            grafana: '/packages/grafana',
+            minikube: '/packages/minikube'
+        };
+    </script>
+    <script src="js/config-loader.js"></script>
+    <script src="js/theme-manager.js"></script>
+    <script src="js/holo-effects.js"></script>
+    <script src="js/package-loader.js"></script>
+    <script src="js/microservices-loader.js"></script>
+    <script src="js/terminal-handler.js"></script>
+</body>
+</html>

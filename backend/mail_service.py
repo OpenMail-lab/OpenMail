@@ -1,5 +1,6 @@
 import smtplib, json, time
 from flask import Blueprint, request, redirect, render_template_string
+import tkinter as tk
 
 mail_service = Blueprint("mail_service", __name__)
 
@@ -62,3 +63,27 @@ def view_mailbox():
     <br><a href='/local/service'>Back</a>
     """
     return inbox_html
+
+class MailServiceFrame(tk.Frame):
+    def __init__(self, parent, callback):
+        super().__init__(parent, bg="#001133")
+        self.callback = callback
+        self.user_data = None
+        self.setup_ui()
+    
+    def set_user_data(self, user_data):
+        self.user_data = user_data
+        self.update_ui()
+    
+    def setup_ui(self):
+        # ...existing mail service UI code...
+        
+        # Add back navigation
+        tk.Button(
+            self,
+            text="← Logout",
+            command=lambda: self.callback("welcome"),
+            bg="#1E88E5",
+            fg="white",
+            font=("Arial", 12)
+        ).pack(side="top", anchor="w", padx=10, pady=10)

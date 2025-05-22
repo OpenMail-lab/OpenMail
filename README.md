@@ -1,19 +1,31 @@
 # OpenMail
 
-A multi-service email application with microservices architecture.
+A Python-based email client with integrated DevOps tools.
 
-## Installation
+## Features
 
-1. Download `OpenMailInstaller.exe` from the [Releases](https://github.com/OpenMail-lab/OpenMail/releases) page.
-2. Run the installer to set up OpenMail.
-3. Access services via the configured public IP (NAT-enabled).
+- Local and Domain Email Support
+- Integrated DevOps Tools:
+  - Kubernetes Management
+  - Terraform Infrastructure
+  - Ansible Automation
+  - Service Mesh (Istio)
+  - Monitoring
+  - CI/CD Integration
 
-## Development
+## Setup
 
-- Push changes to the `main` branch to trigger CI/CD.
-- Use GitHub Actions for automated builds.
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/OpenMail.git
+```
 
-## Services
+2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-- `home_service.py`: Main application service.
-- `smtp_service.py`: Email sending service.
+3. Run the application
+```bash
+python -m backend
+```

@@ -1,0 +1,69 @@
+:root {
+    --vscode-bg: #1e1e1e;
+    --vscode-sidebar: #252526;
+    --vscode-terminal: #1e1e1e;
+    --text-color: #cccccc;
+    --activity-bar: #333333;
+    --editor-bg: #1e1e1e;
+}
+
+.ide-layout {
+    display: grid;
+    grid-template-columns: 48px 200px 1fr;
+    height: 100vh;
+    background: var(--vscode-bg);
+    color: var(--text-color);
+}
+
+.activity-bar {
+    background: var(--activity-bar);
+    width: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.sidebar {
+    background: var(--vscode-sidebar);
+    border-right: 1px solid #404040;
+}
+
+.editor-area {
+    background: var(--editor-bg);
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.main-content {
+    display: grid;
+    grid-template-rows: 1fr 300px;
+}
+
+.terminal-panel {
+    background: var(--vscode-terminal);
+    border-top: 1px solid #333;
+}
+
+.terminal {
+    background: var(--vscode-terminal);
+    color: #00ff00;
+    font-family: 'Consolas', monospace;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.monaco-editor {
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    margin: 4px 0;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+}

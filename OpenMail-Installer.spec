@@ -1,16 +1,20 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_submodules
+
+hiddenimports = ['PIL', 'tkinter']
+hiddenimports += collect_submodules('customtkinter')
 
 
 a = Analysis(
     ['universal-installer.py'],
     pathex=[],
     binaries=[],
-    datas=[('backend', 'backend'), ('ui', 'ui'), ('sounds', 'sounds')],
-    hiddenimports=[],
+    datas=[('frontend', 'frontend'), ('backend', 'backend'), ('install_openmail.bat', '.')],
+    hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=['webview'],
     noarchive=False,
     optimize=0,
 )

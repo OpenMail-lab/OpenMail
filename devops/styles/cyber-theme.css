@@ -1,0 +1,35 @@
+:root {
+    --neon-primary: var(--cyber-blue);
+    --neon-secondary: var(--cyber-purple);
+    --cyber-bg: var(--dark-matter);
+}
+
+.cyber-container {
+    background: var(--cyber-bg);
+}
+
+.tools-menu button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid var(--neon-primary);
+}
+
+.tools-menu button::before {
+    content: '';
+    position: absolute;
+    background: var(--neon-primary);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tools-menu button:hover::before {
+    opacity: 0.2;
+}
+
+.terminal {
+    font-family: 'Consolas', monospace;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--neon-primary);
+    box-shadow: 0 0 10px var(--neon-primary);
+}

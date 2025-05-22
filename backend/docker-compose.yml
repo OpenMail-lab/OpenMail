@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  auth_service:
+    build: ./services/auth
+    ports:
+      - "31001:8000"
+    
+  mail_service:
+    build: ./services/mail
+    ports:
+      - "31002:8000"
+    
+  storage_service:
+    build: ./services/storage
+    ports:
+      - "31003:8000"
+    
+  settings_service:
+    build: ./services/settings
+    ports:
+      - "31004:8000"
+
+networks:
+  email_network:
+    driver: bridge

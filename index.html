@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenMail DevOps Portal</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="devops/js/file-manager.js"></script>
+    <script>
+        window.onload = () => {
+            FileManager.init('devops/packages/config.json');
+        }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

@@ -1,16 +1,16 @@
 import os
-import update
-import auto_update
-# Ensure dependencies are installed
-try:
-    import flask
-    import kubernetes
-except ImportError:
-    print("🔹 Installing missing dependencies...")
-    os.system("pip install flask kubernetes")
+import sys
 
-print("✅ All dependencies installed. Starting OpenMail...")
-print("🔹 Starting OpenMail...")
-update.check_for_updates()
-print("🔹 Starting OpenMail...")
-auto_update.check_for_updates()
+# Add the project root to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from backend.welcome_screen import WelcomeScreen
+
+
+def main():
+    app = WelcomeScreen()
+    app.run()
+
+
+if __name__ == "__main__":
+    main()

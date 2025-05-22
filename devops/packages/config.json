@@ -1,0 +1,53 @@
+{
+    "packagesRoot": "./packages",
+    "offline": true,
+    "packageVersions": {
+        "kiali": "1.57.1",
+        "terraform": "1.5.7",
+        "argocd": "2.8.0",
+        "helm": "3.12.3",
+        "ansible": "2.15.4",
+        "docker": "24.0.6",
+        "kubernetes": "1.28.2",
+        "jenkins": "2.414.2",
+        "trivy": "0.45.1",
+        "prometheus": "2.47.0",
+        "istio": "1.19.0",
+        "grafana": "10.1.4",
+        "minikube": "1.31.2"
+    },
+    "theme": {
+        "name": "cyber",
+        "primary": "#00f3ff",
+        "secondary": "#bc13fe",
+        "background": "#0a0b1e",
+        "effects": {
+            "particles": true,
+            "hologram": true,
+            "neonText": true
+        }
+    },
+    "filePaths": {
+        "styles": [
+            "styles/main.css",
+            "styles/futuristic.css",
+            "styles/cyber-theme.css"
+        ],
+        "scripts": [
+            "js/config-loader.js",
+            "js/theme-manager.js",
+            "js/holo-effects.js",
+            "js/package-loader.js",
+            "js/microservices-loader.js",
+            "js/terminal-handler.js"
+        ],
+        "components": [
+            "ui-buttons.html",
+            "login.html"
+        ]
+    },
+    "dependencies": {
+        "required": ["config-loader.js", "file-manager.js"],
+        "optional": ["holo-effects.js"]
+    }
+}

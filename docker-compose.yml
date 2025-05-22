@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  ui:
+    build: ./devops
+    ports:
+      - "3000:80"
+  
+  logo-service:
+    build: ./services/logo
+    ports:
+      - "31000:8080"
+  
+  kiali:
+    image: kiali/kiali:latest
+    ports:
+      - "31001:20001"
+  
+  terraform-service:
+    build: ./services/terraform
+    ports:
+      - "31002:8080"
+  
+  argocd:
+    image: argoproj/argocd:latest
+    ports:
+      - "31003:8080"
+
+  # ... other services configuration ...
+
+networks:
+  devops-network:
+    driver: bridge

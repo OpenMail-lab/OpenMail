@@ -1,6 +1,7 @@
 import os
 import subprocess
 from setuptools import setup, find_packages
+import sys
 
 print("🔹 Building and signing OpenMail installer...")
 subprocess.run(["python3", "build-installer.py"])  # 🔥 Run automatic code signing!
@@ -14,12 +15,14 @@ def log_message(message):
     print(message)  # Display in console as well
 
 def install_dependencies():
+    print("Installing OpenMail dependencies...")
     try:
-        log_message("🔹 Installing dependencies...")
-        os.system("pip install --upgrade flask kubernetes pygame requests")
-        log_message("✅ Dependencies installed successfully!")
-    except Exception as e:
-        log_message(f"❌ Error installing dependencies: {e}")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+        print("Dependencies installed successfully!")
+        return True
+    except subprocess.CalledProcessError:
+        print("Error installing dependencies!")
+        return False
 
 def deploy_microservices():
     try:
@@ -55,7 +58,11 @@ def retry_on_failure(func, retries=3):
     log_message("❌ Installation failed after multiple attempts.")
 
 if __name__ == "__main__":
-    run_installation()
+    if install_dependencies():
+        print("Setup completed successfully!")
+    else:
+        print("Setup failed!")
+        sys.exit(1)
 
 setup(
     name="openmail",

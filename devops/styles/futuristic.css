@@ -1,0 +1,52 @@
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --cyber-green: #39ff14;
+  --dark-matter: #0a0b1e;
+  --hologram-blue: rgba(0, 231, 255, 0.3);
+}
+
+.cyber-container {
+  background: var(--dark-matter);
+  background-image: 
+    linear-gradient(45deg, rgba(10, 11, 30, 0.8) 0%, 
+    rgba(5, 6, 20, 0.9) 100%);
+  animation: pulse 4s infinite;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px var(--neon-blue),
+               0 0 20px var(--neon-blue),
+               0 0 30px var(--neon-purple);
+  animation: glowPulse 2s infinite;
+}
+
+.hologram-panel {
+  backdrop-filter: blur(10px);
+  background: var(--hologram-blue);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 231, 255, 0.2);
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.cyber-button {
+  background: transparent;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button::after {
+  content: '';
+  position: absolute;
+  background: var(--neon-blue);
+  opacity: 0.3;
+  transition: all 0.3s;
+}
